@@ -7,11 +7,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:success] = 'Your post was successfully created!'
       redirect_to @post
     else
       redirect_to posts_path
     end
+  end
+  
+  def show
+    @post = Post.find(params[:id])        
   end
   
   private 

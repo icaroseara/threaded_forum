@@ -1,0 +1,11 @@
+<div class="replies">
+  <p>
+    <strong><%= "#{comment.tree}" %></strong>
+    <span> <%= "#{I18n.l(comment.created_at, format: :default)} #{comment.body}" %> </span>
+  </p>
+  
+  <% from_reply_form ||= nil %>
+  <% unless from_reply_form %>
+    <p> <%= link_to 'Add Comment', new_comment_path(comment.id) %> </p>
+  <% end %>
+</div>

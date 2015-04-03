@@ -9,6 +9,7 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'closure_tree'
 
 group :development do
   gem 'web-console', '~> 2.0'
