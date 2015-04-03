@@ -8,6 +8,7 @@ gem 'therubyracer'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'
+gem 'kaminari'
 
 group :development do
   gem 'web-console', '~> 2.0'

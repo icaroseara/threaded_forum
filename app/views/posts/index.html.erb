@@ -1,9 +1,14 @@
 <div class="container">
   <h1>Threaded Forum</h1>
-    <% @posts.each do |post| %>
-      <p>
-        <%= link_to "#{post.id}. #{I18n.l(post.created_at, format: :default)}" , post_path(post) %> 
-        <span><%= post.subject %></span>
-      </p>
-    <% end %>
+  
+  <%= render "form", post: @post %>
+  
+  <% @posts.each do |post| %>
+    <p>
+      <%= link_to "#{post.id}. #{I18n.l(post.created_at, format: :default)}" , post_path(post) %> 
+      <span><%= post.subject %></span>
+    </p>
+  <% end %>
+  
+  <%= paginate @posts %>
 </div>
