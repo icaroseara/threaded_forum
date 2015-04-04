@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   private
  
   def record_not_found
+    byebug
    render plain: "404 Not Found", status: 404
   end
 end

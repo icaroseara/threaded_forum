@@ -1,5 +1,6 @@
-
 en:
+  posts:
+    invalid: "Subject can't be blank"
   time:
     formats:
       short: "%H:%M"

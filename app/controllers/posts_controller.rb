@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       @post = service.call
       redirect_to @post
     else
-      redirect_to posts_path
+      redirect_to posts_path, flash:  { error: I18n.t("posts.invalid") }
     end
   end
   
