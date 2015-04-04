@@ -4,23 +4,19 @@ class PostsController < ApplicationController
     @posts = Post.order(created_at: :asc).page params[:page]
   end
   
+  def show
+    @post = Post.find(params[:id])
+    @comments = Services::Comments::ShowService.new(post: @post, page: params[:page]).call
+  end
+  
   def create
-    @post = Post.new(post_params)
-    if @post.save
+    service = Services::Posts::CreateService.new(post_params)
+    if service.is_valid?
+      @post = service.call
       redirect_to @post
     else
       redirect_to posts_path
     end
-  end
-  
-  def show
-    @post = Post.find(params[:id])
-    if params[:page].blank?
-      @comments = @post.comments.page(params[:page])
-    else
-      roots = @post.comments.page(params[:page]).roots
-      @comments = Comment.fetch_children_for_roots(@post, roots) 
-    end      
   end
   
   private 

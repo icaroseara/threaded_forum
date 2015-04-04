@@ -1,26 +1,16 @@
 class CommentsController < ApplicationController
   def new
-    if params[:parent_id]
-      parent = Comment.find(params[:parent_id])
-      @comment = Comment.new(parent_id: params[:parent_id],post_id: parent.post_id )
-    else
-      @comment = Comment.new(post_id: params[:post_id])
-    end
+    @comment = Services::Comments::InitializeService.new(params.permit(:post_id, :parent_id)).call    
   end
     
   def create
-    if comment_params[:parent_id].present?
-      parent = Comment.find(comment_params[:parent_id])
-      @comment = parent.children.build(comment_params)
-    else
-      @comment = Comment.new(comment_params)
-    end
-
-    if @comment.save
+    service = Services::Comments::CreateService.new(comment_params)
+    if service.is_valid?
+      @comment = service.call
       redirect_to post_path(@comment.post)
     else
-      render 'new'
-    end
+      redirect_to posts_path, status: 422     
+    end  
   end
   
   private
