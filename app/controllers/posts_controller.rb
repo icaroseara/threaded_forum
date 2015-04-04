@@ -14,7 +14,13 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:id])        
+    @post = Post.find(params[:id])
+    if params[:page].blank?
+      @comments = @post.comments.page(params[:page])
+    else
+      roots = @post.comments.page(params[:page]).roots
+      @comments = Comment.fetch_children_for_roots(@post, roots) 
+    end      
   end
   
   private 

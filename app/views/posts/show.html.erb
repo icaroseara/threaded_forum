@@ -3,5 +3,6 @@
   <span> <%= "#{I18n.l(@post.created_at, format: :default)} #{@post.subject}" %> </span>	
   <p><%= link_to 'Add Comment', first_comment_path(@post.id) %></p>
   
-  <%= comments_tree_for @post.comments.hash_tree, @post.id %>
+  <%= comments_tree_for @comments.hash_tree, @post.id %>
+  <%= paginate @comments %>
 </p>
