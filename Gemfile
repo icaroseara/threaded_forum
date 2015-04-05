@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'closure_tree'
 gem "health_check"
+gem 'newrelic_rpm'
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -33,6 +34,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "codeclimate-test-reporter", require: nil
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'selenium-webdriver'
