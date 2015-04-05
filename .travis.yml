@@ -5,6 +5,8 @@ before_install:
   - gem install bundler
 install:
   - bundle install
+before_script:
+  - mysql -e 'create database threaded_forum_test;'
 addons:
   code_climate:
     repo_token: 83120d621f4a9ca876fd2069a8213b93d1a6f516276159987921972b95871a07
