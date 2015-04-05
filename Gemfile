@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'closure_tree'
+gem "health_check"
 
 group :development do
   gem 'web-console', '~> 2.0'
