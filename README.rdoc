@@ -7,4 +7,4 @@ Booking is an example of threaded forum application.
 
 == Demo
 
-The demo application is available at: https://github.com/icaroseara/threaded_forum
+The demo application is available at: http://forum-elb-1514853960.us-east-1.elb.amazonaws.com
