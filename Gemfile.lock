@@ -151,6 +151,7 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    sauber (0.1.0)
     selenium-webdriver (2.45.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   rails_layout
   rspec-rails (~> 3.0)
   sass-rails (~> 4.0.3)
+  sauber
   selenium-webdriver
   shoulda-matchers
   spring

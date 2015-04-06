@@ -8,7 +8,7 @@ module Services::Comments
     
     def call      
       if is_valid?
-        parent_id.present? ? Comment.find(parent_id).children.create(parent_id: parent_id, post_id: post_id, body: body) : Comment.create(parent_id: parent_id, post_id: post_id, body: body)
+        parent_id.present? ? Comment.find(parent_id).children.create(parent_id: parent_id, post_id: post_id, body: Sauber.clean(body)) : Comment.create(parent_id: parent_id, post_id: post_id, body: Sauber.clean(body))
       else
         false
       end

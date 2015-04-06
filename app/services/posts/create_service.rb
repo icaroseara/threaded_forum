@@ -5,7 +5,7 @@ module Services::Posts
     validates_presence_of :subject
     
     def call
-      Post.create(subject: subject)
+      Post.create(subject: Sauber.clean(subject))
     end
     
     def is_valid?

@@ -6,6 +6,7 @@ require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
 require 'capybara/rspec'
+require 'yaml'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'closure_tree'
 gem "health_check"
 gem 'newrelic_rpm'
+gem "sauber"
 
 group :development do
   gem 'web-console', '~> 2.0'

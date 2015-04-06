@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403164739) do
+ActiveRecord::Schema.define(version: 20150406155656) do
 
   create_table "comment_hierarchies", id: false, force: true do |t|
     t.integer "ancestor_id",   null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150403164739) do
   add_index "comment_hierarchies", ["descendant_id"], name: "comment_desc_idx", using: :btree
 
   create_table "comments", force: true do |t|
-    t.string   "body"
+    t.text     "body"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
